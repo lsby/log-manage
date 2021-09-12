@@ -3,7 +3,7 @@ export interface 日志管理者 {
     追加: (s: string) => Promise<日志管理者>
     清空: () => Promise<日志管理者>
     获得日志池: () => Promise<日志[]>
-    当变化: (f: (s: string, pool: 日志[]) => Promise<void>) => Promise<日志管理者>
+    当变化时: (f: (s: string, pool: 日志[]) => Promise<void>) => Promise<日志管理者>
 }
 
 export interface 日志 {
@@ -47,7 +47,7 @@ export default function 日志管理器(缓存最大条数: number = 100) {
         async 获得日志池() {
             return pool
         },
-        async 当变化(f) {
+        async 当变化时(f) {
             变化回调 = f
             return r
         },
