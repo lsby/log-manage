@@ -22,7 +22,7 @@ describe('基本测试', function () {
         var s = 1
         var p = await 日志管理者.获得日志池()
 
-        日志管理者.当变化时(async () => {
+        日志管理者.当变化后(async () => {
             s = 2
         })
 
